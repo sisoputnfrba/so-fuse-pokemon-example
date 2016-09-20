@@ -21,19 +21,6 @@ struct stat pikachuStat;
 struct stat squirtleStat;
 struct stat bulbasaurStat;
 
-
-//static int ejemplo_create(const char * path, mode_t mode,
-//struct fuse_file_info * fi) {
-//	FILE* fp;
-//	char file[100];
-//	strcpy(file, "/home/utnso/Escritorio/");
-//	strcat(file, path);
-//	fp = fopen(file, "w+");
-//	fputs("Hola 1 2 3", fp);
-//	fclose(fp);
-//	return 0;
-//}
-
 static int ejemplo_getattr(const char *path, struct stat *stbuf) {
 	int res = 0;
 	memset(stbuf, 0, sizeof(struct stat));
@@ -147,13 +134,6 @@ int main(int argc, char *argv[]) {
 	pmap_bulbasaur= mmap(0, bulbasaurStat.st_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd_bulbasaur, 0);
 
 	return fuse_main(argc, argv, &ejemplo_oper, NULL );
-
-
-
-
-
-
-
 
 }
 
